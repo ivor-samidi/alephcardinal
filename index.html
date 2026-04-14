@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0D0D'/%3E%3Crect x='1' y='1' width='30' height='30' fill='none' stroke='%23C8A96E' stroke-width='0.8'/%3E%3Ctext x='50%25' y='52%25' font-family='serif' font-size='20' fill='%23C8A96E' text-anchor='middle' dominant-baseline='central'%3E%E2%84%B5%3C/text%3E%3C/svg%3E">
 <meta property="og:url" content="https://aleph-co.com">
 <!-- Prevent browser scroll-restoration flash -->
-<script>if('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+<script>document.documentElement.classList.remove('no-js');if('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -505,6 +505,7 @@ footer {
 .social-link svg { width:24px; height:24px; }
 .social-link:hover { color:var(--gold); }
 .footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
+.footer-legal-mobile { display:none; }
 .footer-legal { font-family:var(--serif); font-size:16px; color:rgba(240,235,224,.82); letter-spacing:.5px; }
 
 
@@ -586,6 +587,8 @@ footer {
   transition:opacity .72s ease, transform .72s ease;
 }
 .rev.in { opacity:1; transform:none; }
+/* Fallback: if JS doesn't run (e.g. file opened locally), show all content */
+.no-js .rev { opacity:1; transform:none; }
 .rev.d1 { transition-delay:.11s; }
 .rev.d2 { transition-delay:.22s; }
 .rev.d3 { transition-delay:.34s; }
@@ -621,6 +624,12 @@ footer {
   transition:color .2s;
 }
 .nav-mobile a:hover { color:var(--gold); }
+.nav-mobile a:active {
+  color:var(--gold);
+  background:rgba(200,169,110,.08);
+  border-radius:4px;
+  padding:4px 16px; margin:-4px -16px;
+}
 
 /* ─────────────────────────────────────
    RESPONSIVE
@@ -649,6 +658,143 @@ footer {
   footer { padding:28px; }
   .footer-inner { flex-direction:column; gap:20px; align-items:flex-start; }
   .footer-right { align-items:flex-start; }
+}
+
+/* ─────────────────────────────────────
+   MOBILE — iPhone / small screens
+───────────────────────────────────── */
+@media (max-width:480px) {
+
+  /* ── 1. HERO — compact to ~1 screen ── */
+  #hero { min-height:auto; padding:100px 24px 72px; }
+  .hero-aleph { font-size:56px; margin-bottom:14px; }
+  .hero-sep { margin-bottom:18px; }
+  .hero-wordmark { font-size:19px; letter-spacing:6px; margin-bottom:8px; }
+  .hero-sub-label { font-size:11px; letter-spacing:4px; margin-bottom:36px; }
+  .hero-headline { font-size:36px; margin-bottom:16px; }
+  .hero-desc { font-size:17px; line-height:1.7; margin:0 auto 32px; }
+  .hero-content { padding:24px 0; max-width:100%; }
+  .btn { font-size:17px; padding:14px 36px; }
+
+  /* ── 2. ABOUT — stabilise typing height ── */
+  #about { padding:72px 24px; }
+  .about-intro h2 { font-size:42px; }
+  .about-intro { min-height:160px; }
+  .pillar h3 { font-size:22px; }
+
+  /* ── 3. CALLOUT ── */
+  #callout { padding:56px 24px; }
+  .callout-text { font-size:28px; }
+
+  /* ── 4. SERVICES — stack front+back, no flip ── */
+  #services { padding:72px 24px; }
+  .section-hd { padding-bottom:24px; margin-bottom:0; }
+  .section-hd h2 { font-size:42px; }
+  .services-grid { gap:0; background:none; border:none; }
+  .service-card { perspective:none; }
+  .card-inner {
+    min-height:auto !important;
+    transform-style:flat;
+    position:relative;
+  }
+  .service-card:hover .card-inner { transform:none; }
+  .card-front, .card-back {
+    position:relative; inset:auto;
+    backface-visibility:visible;
+    -webkit-backface-visibility:visible;
+  }
+  .card-front {
+    padding:32px 24px 16px;
+    gap:12px;
+  }
+  .card-back {
+    transform:none;
+    padding:0 24px 32px;
+    border:none;
+    background:transparent;
+  }
+  .card-back p { font-size:17px; line-height:1.7; padding-bottom:16px; }
+  .service-num { font-size:48px; }
+  .card-front h3 { font-size:26px; }
+  .service-card + .service-card {
+    border-top:1px solid rgba(200,169,110,.18);
+  }
+  /* Disable blur-siblings effect on touch */
+  .services-grid.has-focus .service-card:not(:hover) {
+    filter:none; opacity:1;
+  }
+
+  /* ── 5. CAROUSEL — disclaimer full-width ── */
+  #mandates { padding:72px 24px; }
+  .mandates-hd h2 { font-size:42px; }
+  .c-body { font-size:18px; line-height:1.75; }
+  .c-left { padding:32px 24px; }
+  .c-right { padding:32px 24px; }
+  .c-title { font-size:22px; }
+  .c-metric-num { font-size:36px; }
+  .c-controls { flex-wrap:wrap; gap:14px; }
+  .c-disclaimer {
+    margin-left:0; width:100%;
+    text-align:left; font-size:13px; line-height:1.5;
+    order:3;
+  }
+
+  /* ── 6. APPROACH — lighter separators ── */
+  #approach { padding:72px 24px; }
+  .approach-intro { margin-bottom:32px; }
+  .approach-intro h2 { font-size:42px; margin-bottom:20px; }
+  .approach-intro p { font-size:18px; }
+  .principles {
+    background:none;
+    gap:0;
+  }
+  .principle {
+    padding:36px 0;
+    border-bottom:1px solid rgba(200,169,110,.15);
+  }
+  .principle:last-child { border-bottom:none; }
+  .principle-n { font-size:40px; margin-bottom:14px; }
+  .principle h3 { font-size:24px; }
+  .principle p { font-size:17px; }
+
+  /* ── 7. FAQ ── */
+  #faq { padding:72px 24px; }
+  .faq-intro h2 { font-size:42px; }
+  .faq-question { font-size:19px; }
+  .faq-body { font-size:17px; padding-right:0; }
+
+  /* ── 8. WHO — compact photo + bio ── */
+  #who { padding:72px 24px; }
+  .who-grid { gap:36px; }
+  .who-photo-wrap { justify-content:center; }
+  .who-photo { max-width:240px; }
+  .who-name { font-size:36px; text-align:center; }
+  .who-role { text-align:center; margin-bottom:28px; }
+  .who-sep { margin:0 auto 28px; }
+  .who-bio { font-size:18px; margin-bottom:32px; }
+  .who-item-text { font-size:17px; }
+
+  /* ── 9. CONTACT ── */
+  #contact { padding:96px 24px; }
+  #contact h2 { font-size:48px; }
+  .contact-body { font-size:18px; }
+
+  /* ── 10. FOOTER — minimal centered ── */
+  footer { padding:28px 24px; }
+  .footer-inner {
+    flex-direction:column; align-items:center;
+    gap:18px; text-align:center;
+  }
+  .footer-left { align-items:center; }
+  .footer-social { justify-content:center; }
+  .footer-right { display:none; }
+  .footer-legal-mobile {
+    display:block;
+    font-family:var(--sans); font-size:12px;
+    color:rgba(240,235,224,.52); letter-spacing:.4px;
+    text-decoration:none; transition:color .2s;
+  }
+  .footer-legal-mobile:hover { color:var(--gold); }
 }
 </style>
 </head>
@@ -716,11 +862,11 @@ footer {
       <div class="pillars">
         <div class="pillar rev d1">
           <span class="pillar-tag">Early &amp; Growth Stage</span>
-          <h3>Growth creates complexity before most teams are ready for it</h3>
+          <h3>Growth creates complexity before most teams are ready for it.</h3>
         </div>
         <div class="pillar rev d2">
           <span class="pillar-tag">Established Businesses</span>
-          <h3>Companies that have scaled — and now face decisions that don't happen twice</h3>
+          <h3>Companies that have scaled — and now face decisions that don't happen twice.</h3>
         </div>
       </div>
     </div>
@@ -1088,7 +1234,7 @@ footer {
     <div class="footer-left">
       <span class="footer-brand">Aleph &amp; Co.</span>
       <span class="footer-copy">© 2026 — All rights reserved</span>
-
+      <a href="#" class="footer-legal-mobile" onclick="document.getElementById('legalLink').click();return false;">Legal notice</a>
     </div>
 
     <div class="footer-social">
