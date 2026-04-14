@@ -1441,6 +1441,7 @@ window.addEventListener('scroll', () => {
   }
   burger.addEventListener('click', () => toggle());
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+  menu.addEventListener('click', e => { if (e.target === menu) toggle(false); });
 })();
 
 /* Active nav state — highlight link of current section */
