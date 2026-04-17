@@ -714,20 +714,27 @@ span.lead {
   display:none; position:fixed; inset:0; z-index:250;
   background:rgba(13,13,13,.97); backdrop-filter:blur(16px);
   flex-direction:column; align-items:center; justify-content:center;
-  gap:40px;
+  gap:0;
 }
 .nav-mobile.open { display:flex; }
 .nav-mobile a {
-  font-family:var(--serif); font-size:32px; font-weight:300;
-  color:rgba(240,235,224,.78); text-decoration:none; letter-spacing:2px;
-  transition:color .2s;
+  font-family:var(--sans); font-size:15px; font-weight:400;
+  color:rgba(240,235,224,.72); text-decoration:none;
+  letter-spacing:4px; text-transform:uppercase;
+  padding:22px 0;
+  border-bottom:1px solid rgba(200,169,110,.15);
+  width:220px; text-align:center;
+  transition:color .25s, border-color .25s;
 }
-.nav-mobile a:hover { color:var(--gold); }
+.nav-mobile a:first-child {
+  border-top:1px solid rgba(200,169,110,.15);
+}
+.nav-mobile a:hover {
+  color:var(--gold);
+  border-bottom-color:rgba(200,169,110,.4);
+}
 .nav-mobile a:active {
   color:var(--gold);
-  background:rgba(200,169,110,.08);
-  border-radius:4px;
-  padding:4px 16px; margin:-4px -16px;
 }
 
 /* ─────────────────────────────────────
@@ -781,6 +788,7 @@ span.lead {
   .about-intro h2 { font-size:42px; }
   .about-intro { min-height:160px; }
   .pillar h3 { font-size:19px; }
+  .em-accent--pillar { font-size:25px; }
 
   /* ── 3. CALLOUT ── */
   #callout { padding:56px 24px; }
