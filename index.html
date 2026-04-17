@@ -39,7 +39,7 @@
 <script>document.documentElement.classList.remove('no-js');if('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 /* ─────────────────────────────────────
    TOKENS
@@ -56,17 +56,18 @@
   --g2 : #5A4E44;   /* secondary on light */
   --g3 : #2E2820;   /* body on light */
   --serif : 'Cormorant Garamond', Georgia, serif;
-  --sans  : 'Gill Sans MT','Gill Sans',Optima,Candara,'Trebuchet MS',sans-serif;
+  --sans  : 'Inter Tight','Gill Sans MT','Gill Sans',Optima,Candara,sans-serif;
 }
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:84px; }
 body {
-  font-family:var(--serif);
+  font-family:var(--sans);
   background:var(--black);
   color:var(--ivory);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  font-size:18px;       /* base for em cascade */
+  font-size:16px;       /* Inter Tight reads slightly larger than Cormorant */
+  line-height:1.7;
 }
 
 /* ─────────────────────────────────────
@@ -94,7 +95,7 @@ nav.scrolled {
 .nav-name { font-family:var(--serif); font-size:17px; font-weight:400; color:var(--ivory); letter-spacing:1px; }
 .nav-links { display:flex; gap:36px; list-style:none; }
 .nav-links a {
-  font-family:var(--sans); font-size:12px; color:rgba(240,235,224,.72);
+  font-family:var(--sans); font-size:11px; font-weight:500; color:rgba(240,235,224,.72);
   text-decoration:none; letter-spacing:2.5px; text-transform:uppercase;
   position:relative; padding-bottom:5px;
   transition:color .22s;
@@ -171,7 +172,7 @@ nav.scrolled {
 }
 .hl  { display:block; }
 .hero-desc {
-  font-size:21px; color:var(--g1); line-height:1.85;
+  font-family:var(--sans); font-size:18px; font-weight:300; color:var(--g1); line-height:1.85;
   max-width:780px; margin:0 auto 52px;
   animation:fadeIn .5s ease both .35s;
 }
@@ -179,7 +180,7 @@ nav.scrolled {
   display:inline-flex; align-items:center; gap:14px;
   padding:17px 50px;
   border:1px solid var(--gold); color:var(--gold);
-  font-family:var(--serif); font-size:20px; font-weight:400; letter-spacing:.5px;
+  font-family:var(--sans); font-size:15px; font-weight:500; letter-spacing:1px;
   text-decoration:none;
   transition:background .22s, color .22s;
 }
@@ -232,8 +233,8 @@ nav.scrolled {
   color:#8C6B30; margin-bottom:12px; display:block;
 }
 .pillar h3 {
-  font-family:var(--serif); font-size:28px; font-weight:400;
-  color:#1A1A1A; line-height:1.2;
+  font-family:var(--sans); font-size:24px; font-weight:400;
+  color:#1A1A1A; line-height:1.45;
 }
 
 /* ─────────────────────────────────────
@@ -290,7 +291,7 @@ nav.scrolled {
   opacity:.55;
 }
 .card-inner {
-  width:100%; min-height:270px;
+  width:100%; min-height:320px;
   position:relative;
   transform-style:preserve-3d;
   transition:transform .72s cubic-bezier(.22,1,.36,1);
@@ -306,7 +307,7 @@ nav.scrolled {
 /* Recto — légèrement distingué du fond page */
 .card-front {
   background:#141210;
-  justify-content:flex-start; gap:20px;
+  justify-content:center; gap:20px;
 }
 /* Verso — sombre chaud, non agressif, bordure or */
 .card-back {
@@ -314,6 +315,7 @@ nav.scrolled {
   border:1px solid rgba(200,169,110,.28);
   transform:rotateY(180deg);
   justify-content:space-between;
+  padding:44px 46px;
 }
 
 .service-num {
@@ -325,7 +327,7 @@ nav.scrolled {
   color:var(--ivory); line-height:1.2;
 }
 .card-back p {
-  font-size:21px; color:var(--ivory); line-height:1.8;
+  font-family:var(--sans); font-size:17px; font-weight:300; color:var(--ivory); line-height:1.8;
   flex:1; padding-bottom:24px; opacity:.88;
 }
 .pills { display:flex; flex-wrap:wrap; gap:8px; }
@@ -375,10 +377,10 @@ nav.scrolled {
 }
 .c-metric { margin-top:32px; padding-top:24px; border-top:1px solid var(--lt-rule); }
 .c-metric-num {
-  font-family:var(--serif); font-size:44px; font-weight:300;
+  font-family:var(--serif); font-size:68px; font-weight:300;
   color:var(--gold); line-height:1;
 }
-.c-metric-label { font-size:16px; color:var(--g3); letter-spacing:.2px; margin-top:10px; line-height:1.5; }
+.c-metric-label { font-family:var(--sans); font-size:14px; font-weight:400; color:var(--g3); letter-spacing:.2px; margin-top:10px; line-height:1.5; }
 .c-right { padding:52px 56px; display:flex; align-items:center; }
 /* Controls — dots + arrows on one line */
 .c-controls {
@@ -400,8 +402,8 @@ nav.scrolled {
   transition:background .2s, border-color .2s, color .2s;
 }
 .c-arrow:hover { background:var(--gold); border-color:var(--gold); color:var(--black); }
-.c-disclaimer { font-family:var(--serif); font-size:15px; font-style:italic; color:var(--g2); margin-left:auto; }
-.c-body  { font-size:22px; color:var(--g3); line-height:1.9; }
+.c-disclaimer { font-family:var(--sans); font-size:13px; font-style:italic; font-weight:300; color:var(--g2); margin-left:auto; }
+.c-body  { font-family:var(--sans); font-size:17px; font-weight:400; color:var(--g3); line-height:1.8; }
 
 /* ─────────────────────────────────────
    APPROACH
@@ -412,18 +414,30 @@ nav.scrolled {
   font-family:var(--serif); font-size:62px; font-weight:300;
   color:var(--ivory); line-height:1.18; margin-bottom:30px;
 }
-.approach-intro p { font-size:22px; color:var(--g1); line-height:1.9; }
-.principles { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:rgba(200,169,110,.18); }
-.principle { background:#141210; padding:52px 40px; }
+.approach-intro p { font-family:var(--sans); font-size:17px; font-weight:300; color:var(--g1); line-height:1.8; }
+.principles {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:repeat(4, auto);
+  gap:1px; background:rgba(200,169,110,.18);
+}
+.principle {
+  background:#141210; padding:52px 40px;
+  display:grid;
+  grid-template-rows:subgrid;
+  grid-row:span 4;  /* number, title, lead, body */
+}
 .principle-n {
   font-family:var(--serif); font-size:52px; font-weight:300;
   color:rgba(200,169,110,.38); line-height:1; margin-bottom:20px;
+  align-self:start;
 }
 .principle h3 {
   font-family:var(--serif); font-size:28px; font-weight:400;
   color:var(--ivory); margin-bottom:16px;
+  align-self:start;
 }
-.principle p { font-size:20px; color:var(--g1); line-height:1.9; }
+.principle p.lead { align-self:start; }
+.principle p:not(.lead) { font-family:var(--sans); font-size:16px; font-weight:300; color:var(--g1); line-height:1.8; align-self:start; }
 
 /* ─────────────────────────────────────
    FAQ
@@ -436,7 +450,7 @@ nav.scrolled {
   font-family:var(--serif); font-size:62px; font-weight:300;
   color:#1A1A1A; line-height:1.18; margin-bottom:24px;
 }
-.faq-intro p { font-size:21px; color:var(--g3); line-height:1.9; }
+.faq-intro p { font-family:var(--sans); font-size:16px; font-weight:400; color:var(--g3); line-height:1.8; }
 .faq-list { border-top:1.5px solid rgba(200,169,110,.55); }
 .faq-item { border-bottom:1.5px solid rgba(200,169,110,.55); }
 .faq-q {
@@ -467,8 +481,8 @@ nav.scrolled {
 }
 .faq-body {
   padding:2px 52px 32px 0;
-  font-family:var(--serif); font-size:20px; font-weight:400;
-  color:var(--g3); line-height:1.95;
+  font-family:var(--sans); font-size:16px; font-weight:400;
+  color:var(--g3); line-height:1.8;
 }
 
 /* ─────────────────────────────────────
@@ -503,7 +517,7 @@ nav.scrolled {
   font-style:italic; color:var(--ivory); margin-bottom:26px; line-height:1.08;
 }
 .contact-body {
-  font-size:21px; color:var(--g1); line-height:1.95; margin-bottom:48px;
+  font-family:var(--sans); font-size:17px; font-weight:300; color:var(--g1); line-height:1.8; margin-bottom:48px;
 }
 
 /* ─────────────────────────────────────
@@ -565,7 +579,7 @@ footer {
   margin-bottom:40px;
 }
 .who-bio {
-  font-size:22px; color:var(--g1); line-height:1.9;
+  font-family:var(--sans); font-size:17px; font-weight:300; color:var(--g1); line-height:1.8;
   margin-bottom:44px;
   text-wrap:pretty;
 }
@@ -576,7 +590,7 @@ footer {
   margin-top:7px; flex-shrink:0; opacity:.8;
 }
 .who-item-text {
-  font-family:var(--serif); font-size:20px; color:var(--g1); line-height:1.75;
+  font-family:var(--sans); font-size:16px; font-weight:400; color:var(--g1); line-height:1.75;
   text-wrap:pretty;
 }
 
@@ -602,6 +616,66 @@ footer {
   background-repeat:repeat; background-size:200px 200px;
   opacity:0.042;
   pointer-events:none; z-index:5;
+}
+
+/* ─────────────────────────────────────
+   ACCENT ITALIC — selective serif emphasis
+   Pattern: key emotional word in italic within a serif title
+───────────────────────────────────── */
+.em-accent {
+  font-style:italic;
+  font-weight:300;
+  font-size:1.08em;
+  color:var(--gold);
+  opacity:.85;
+}
+/* On light backgrounds — dark gold for titles */
+.em-accent--dk {
+  font-style:italic;
+  font-weight:300;
+  font-size:1.08em;
+  color:#8C6B30;
+  opacity:.9;
+}
+/* On light backgrounds — serif italic accent in obsidian (pillar phrases) */
+.em-accent--pillar {
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:31px;
+  color:#1A1A1A;
+}
+
+/* ─────────────────────────────────────
+   TWO-TIER BODY TEXT — lead sentence + elaboration
+   Pattern: bold opening statement, lighter continuation
+───────────────────────────────────── */
+/* As block element (p.lead) */
+p.lead {
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:22px;
+  color:var(--ivory);
+  line-height:1.6;
+  margin-bottom:12px;
+}
+/* As inline element (span.lead inside p) */
+span.lead {
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:inherit;
+  color:var(--ivory);
+  display:block;
+  line-height:1.7;
+  margin-bottom:4px;
+}
+.lead--dk {
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:22px;
+  color:#1A1A1A;
+  line-height:1.6;
+  margin-bottom:12px;
 }
 
 /* ─────────────────────────────────────
@@ -672,6 +746,7 @@ footer {
   .nav-burger { display:flex; }
   #hero,#about,#services,#mandates,#approach,#who,#faq,#contact { padding:88px 28px; }
   .about-grid,.mandates-hd,.faq-grid,.principles,.who-grid { grid-template-columns:1fr; gap:44px; }
+  .principle { display:block; grid-row:auto; }
   .services-grid { grid-template-columns:1fr; }
   .c-card { grid-template-columns:1fr; }
   .c-left { border-right:none; border-bottom:1px solid var(--lt-rule); }
@@ -697,15 +772,15 @@ footer {
   .hero-wordmark { font-size:19px; letter-spacing:6px; margin-bottom:8px; }
   .hero-sub-label { font-size:11px; letter-spacing:4px; margin-bottom:36px; }
   .hero-headline { font-size:36px; margin-bottom:16px; }
-  .hero-desc { font-size:17px; line-height:1.7; margin:0 auto 32px; }
+  .hero-desc { font-size:15px; line-height:1.7; margin:0 auto 32px; }
   .hero-content { padding:24px 0; max-width:100%; }
-  .btn { font-size:17px; padding:14px 36px; }
+  .btn { font-size:13px; padding:14px 36px; letter-spacing:1px; }
 
   /* ── 2. ABOUT — stabilise typing height ── */
   #about { padding:72px 24px; }
   .about-intro h2 { font-size:42px; }
   .about-intro { min-height:160px; }
-  .pillar h3 { font-size:22px; }
+  .pillar h3 { font-size:19px; }
 
   /* ── 3. CALLOUT ── */
   #callout { padding:56px 24px; }
@@ -738,7 +813,7 @@ footer {
     border:none;
     background:transparent;
   }
-  .card-back p { font-size:17px; line-height:1.7; padding-bottom:16px; }
+  .card-back p { font-size:15px; line-height:1.7; padding-bottom:16px; }
   .service-num { font-size:48px; }
   .card-front h3 { font-size:26px; }
   .service-card + .service-card {
@@ -752,11 +827,11 @@ footer {
   /* ── 5. CAROUSEL — disclaimer full-width ── */
   #mandates { padding:72px 24px; }
   .mandates-hd h2 { font-size:42px; }
-  .c-body { font-size:18px; line-height:1.75; }
+  .c-body { font-size:15px; line-height:1.75; }
   .c-left { padding:32px 24px; }
   .c-right { padding:32px 24px; }
   .c-title { font-size:22px; }
-  .c-metric-num { font-size:36px; }
+  .c-metric-num { font-size:52px; }
   .c-controls { flex-wrap:wrap; gap:14px; }
   .c-disclaimer {
     margin-left:0; width:100%;
@@ -768,7 +843,7 @@ footer {
   #approach { padding:72px 24px; }
   .approach-intro { margin-bottom:32px; }
   .approach-intro h2 { font-size:42px; margin-bottom:20px; }
-  .approach-intro p { font-size:18px; }
+  .approach-intro p { font-size:15px; }
   .principles {
     background:none;
     gap:0;
@@ -776,17 +851,20 @@ footer {
   .principle {
     padding:36px 0;
     border-bottom:1px solid rgba(200,169,110,.15);
+    display:block;         /* disable subgrid on mobile stack */
+    grid-row:auto;
   }
   .principle:last-child { border-bottom:none; }
   .principle-n { font-size:40px; margin-bottom:14px; }
   .principle h3 { font-size:24px; }
-  .principle p { font-size:17px; }
+  .principle p { font-size:15px; }
+  .principle p.lead { font-size:17px; }
 
   /* ── 7. FAQ ── */
   #faq { padding:72px 24px; }
   .faq-intro h2 { font-size:42px; }
   .faq-question { font-size:19px; }
-  .faq-body { font-size:17px; padding-right:0; }
+  .faq-body { font-size:15px; padding-right:0; }
 
   /* ── 8. WHO — compact photo + bio ── */
   #who { padding:72px 24px; }
@@ -796,13 +874,16 @@ footer {
   .who-name { font-size:36px; text-align:center; }
   .who-role { text-align:center; margin-bottom:28px; }
   .who-sep { margin:0 auto 28px; }
-  .who-bio { font-size:18px; margin-bottom:32px; }
-  .who-item-text { font-size:17px; }
+  .who-bio { font-size:15px; margin-bottom:32px; }
+  .who-item-text { font-size:15px; }
 
   /* ── 9. CONTACT ── */
   #contact { padding:96px 24px; }
   #contact h2 { font-size:48px; }
-  .contact-body { font-size:18px; }
+  .contact-body { font-size:15px; }
+
+  /* ── Two-tier & accent mobile adjustments ── */
+  .lead, .lead--dk { font-size:17px; }
 
   /* ── 10. FOOTER — minimal centered ── */
   footer { padding:28px 24px; }
@@ -868,8 +949,8 @@ footer {
     <div class="hero-wordmark">ALEPH &amp; CO.</div>
     <div class="hero-sub-label">Strategy &amp; Finance Advisory</div>
     <h1 class="hero-headline">
-      <span class="hl"><span class="hli">Sharp judgment.</span></span>
-      <span class="hl"><span class="hli">Committed delivery.</span></span>
+      <span class="hl"><span class="hli">Sharp <em class="em-accent">judgment.</em></span></span>
+      <span class="hl"><span class="hli">Committed <em class="em-accent">delivery.</em></span></span>
     </h1>
     <p class="hero-desc">Senior advisory for founders and executives navigating financial transactions, strategic decisions, and the operational challenges that determine whether either succeeds.</p>
     <a href="#contact" class="btn">Schedule a conversation<span class="btn-arrow">→</span></a>
@@ -887,11 +968,11 @@ footer {
       <div class="pillars">
         <div class="pillar rev d1">
           <span class="pillar-tag">Early &amp; Growth Stage</span>
-          <h3>Growth creates complexity before most teams are ready for it.</h3>
+          <h3>Growth creates <em class="em-accent--pillar">complexity</em> before most teams are ready for it.</h3>
         </div>
         <div class="pillar rev d2">
           <span class="pillar-tag">Established Businesses</span>
-          <h3>Companies that have scaled — and now face decisions that don't happen twice.</h3>
+          <h3>Companies that have scaled — and now face decisions that <em class="em-accent--pillar">don't happen twice</em>.</h3>
         </div>
       </div>
     </div>
@@ -903,7 +984,7 @@ footer {
 <div id="callout" class="grain">
   <div class="callout-inner rev">
     <div class="callout-rule top"></div>
-    <p class="callout-text">One name on the door.<br>One advisor in the room.</p>
+    <p class="callout-text">One <em class="em-accent">name</em> on the door.<br>One <em class="em-accent">advisor</em> in the room.</p>
     <div class="callout-rule bottom"></div>
   </div>
 </div>
@@ -914,7 +995,7 @@ footer {
   <div class="inner">
     <div class="section-hd rev">
       <span class="stag dk">Areas of practice</span>
-      <h2>What we do.</h2>
+      <h2>What we <em class="em-accent">do.</em></h2>
     </div>
     <div class="services-grid">
 
@@ -925,7 +1006,7 @@ footer {
             <h3>Capital &amp; Fundraising</h3>
           </div>
           <div class="card-back">
-            <p>We build the equity story, structure the round, and run the investor process from first pitch to close.</p>
+            <p><span class="lead">We build the equity story, structure the round, and run the investor process.</span><br>From first pitch to close.</p>
             <div class="pills pills-dk">
               <span class="pill">Pre-seed</span>
               <span class="pill">Seed</span>
@@ -945,7 +1026,7 @@ footer {
             <h3>Financial Structuring</h3>
           </div>
           <div class="card-back">
-            <p>The analytical backbone of every deal — modelling, valuation, and the capital structure instruments that match the company's trajectory.</p>
+            <p><span class="lead">The analytical backbone of every deal.</span><br>Modelling, valuation, and the capital structure instruments that match the company's trajectory.</p>
             <div class="pills pills-dk">
               <span class="pill">LBO structuring</span>
               <span class="pill">Valuation</span>
@@ -963,7 +1044,7 @@ footer {
             <h3>Go-to-Market Strategy</h3>
           </div>
           <div class="card-back">
-            <p>We redesign how you sell — channels, pricing, sales model — and build the commercial engine behind sustainable growth.</p>
+            <p><span class="lead">We redesign how you sell.</span><br>Channels, pricing, sales model — and the commercial engine behind sustainable growth.</p>
             <div class="pills pills-dk">
               <span class="pill">Pricing</span>
               <span class="pill">Channel design</span>
@@ -982,7 +1063,7 @@ footer {
             <h3>Product &amp; Revenue Design</h3>
           </div>
           <div class="card-back">
-            <p>We connect product decisions to revenue outcomes — offer architecture, pricing, and roadmap priorities designed to make the business model work.</p>
+            <p><span class="lead">We connect product decisions to revenue outcomes.</span><br>Offer architecture, pricing, and roadmap priorities designed to make the business model work.</p>
             <div class="pills pills-dk">
               <span class="pill">Offer design</span>
               <span class="pill">Pricing architecture</span>
@@ -1004,7 +1085,7 @@ footer {
   <div class="inner">
     <div class="mandates-hd rev">
       <span class="stag">Representative work</span>
-      <h2>Mandates &amp;<br>engagements.</h2>
+      <h2>Mandates &amp;<br><em class="em-accent--dk">engagements.</em></h2>
     </div>
     <div class="rev">
       <div class="c-track" id="cTrack">
@@ -1104,24 +1185,28 @@ footer {
   <div class="inner">
     <div class="approach-intro rev">
       <span class="stag dk">How we work</span>
-      <h2>Rigorous thinking.<br>Direct engagement.</h2>
-      <p>We don't produce thick decks and then disappear. Engagements are structured around a clear problem, a defined outcome, and a direct working relationship with the senior advisor — from first meeting to final deliverable.</p>
+      <h2>Rigorous thinking.<br>Direct <em class="em-accent">engagement.</em></h2>
+      <p class="lead">We don't produce thick decks and then disappear.</p>
+      <p>Engagements are structured around a clear problem, a defined outcome, and a direct working relationship with the senior advisor — from first meeting to final deliverable.</p>
     </div>
     <div class="principles">
       <div class="principle rev">
         <div class="principle-n">01</div>
-        <h3>Senior-only delivery</h3>
-        <p>Every engagement is led and delivered personally. No delegation to junior staff. You work directly with the person whose name is on the door, throughout.</p>
+        <h3>Senior-only <em class="em-accent">delivery</em></h3>
+        <p class="lead">Every engagement is led and delivered personally.</p>
+        <p>No delegation to junior staff. You work directly with the person whose name is on the door, throughout.</p>
       </div>
       <div class="principle rev d1">
         <div class="principle-n">02</div>
-        <h3>Outcome-focused scope</h3>
-        <p>Engagements are designed around a specific problem and a measurable outcome — a round closed, a decision made, a model built. We avoid open-ended retainers without milestones.</p>
+        <h3>Outcome-focused <em class="em-accent">scope</em></h3>
+        <p class="lead">Engagements are designed around a specific problem and a measurable outcome.</p>
+        <p>A round closed, a decision made, a model built. We avoid open-ended retainers without milestones.</p>
       </div>
       <div class="principle rev d2">
         <div class="principle-n">03</div>
-        <h3>Selective by design</h3>
-        <p>We take on a limited number of mandates at any given time. This is not scarcity marketing — it is a deliberate choice to protect the quality of attention each client receives.</p>
+        <h3>Selective by <em class="em-accent">design</em></h3>
+        <p class="lead">We take on a limited number of mandates at any given time.</p>
+        <p>This is not scarcity marketing — it is a deliberate choice to protect the quality of attention each client receives.</p>
       </div>
     </div>
   </div>
@@ -1167,7 +1252,7 @@ footer {
     <div class="faq-grid">
       <div class="faq-intro rev">
         <span class="stag">Common questions</span>
-        <h2>A few things people ask.</h2>
+        <h2>A few things people <em class="em-accent--dk">ask.</em></h2>
         <p>If something is not answered here, the best way to find out is a direct conversation.</p>
       </div>
       <div class="faq-list rev d1">
@@ -1245,8 +1330,9 @@ footer {
     <div class="contact-mono">ℵ</div>
     <div class="contact-sep"></div>
     <span class="stag dk" style="margin-bottom:20px;">Get in touch</span>
-    <h2>Let's talk.</h2>
-    <p class="contact-body">We work with a limited number of clients at any given time.<br>Reach out to discuss whether there is a fit — no obligation, no intermediary.</p>
+    <h2>Let's <em class="em-accent">talk.</em></h2>
+    <p class="lead" style="margin-bottom:12px;">We work with a limited number of clients at any given time.</p>
+    <p class="contact-body">Reach out to discuss whether there is a fit — no obligation, no intermediary.</p>
     <a href="mailto:contact@alephcardinal.io" class="btn">contact@alephcardinal.io<span class="btn-arrow">→</span></a>
   </div>
 </section>
